@@ -18,7 +18,7 @@ export default {
   methods:{
     click: () => {
       //axios.get("https://jsonplaceholder.typicode.com/todos/1").then((result ) => {console.log("result:  ", result)}).catch(e => {console.log("Error: ",e)})
-      axios.get("localhost:8080/api/prueba").then((result ) => {console.log("result:  ", result)}).catch(e => {console.log("Error: ",e)})
+      axios.get("http://localhost:1818/api/prueba").then((result ) => {console.log("result:  ", result)}).catch(e => {console.log("Error: ",e)})
       }
   }
 }
