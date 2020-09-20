@@ -31,7 +31,6 @@ public class UserService {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody User user) {
-        user.setRol(0);
         userRepo.save(user);
     }
 
@@ -39,7 +38,6 @@ public class UserService {
     public User edit(@RequestBody User user) {
         User currentUser = userRepo.findUserByRut(user.getRut());
         currentUser.setNombre(user.getNombre());
-        currentUser.setApellido(user.getApellido());
         currentUser.setCorreo(user.getCorreo());
         userRepo.save(currentUser);
         return currentUser;

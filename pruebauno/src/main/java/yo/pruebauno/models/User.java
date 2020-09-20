@@ -6,12 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String id;
-    private String rut;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private int rol;
+    public String id;
+    public String nombre;
+    public String correo;
+    public String rut;
+
 
 
     // Constructor
@@ -43,28 +42,12 @@ public class User {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public String getCorreo() {
         return correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public int getRol() {
-        return rol;
-    }
-
-    public void setRol(int rol) {
-        this.rol = rol;
     }
 
 }

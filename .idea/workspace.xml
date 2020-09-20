@@ -19,11 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f316c898-9b02-4983-93a5-ee45625e4902" name="Default Changelist" comment="" />
+    <list default="true" id="f316c898-9b02-4983-93a5-ee45625e4902" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebauno/src/main/java/yo/pruebauno/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/pruebauno/src/main/java/yo/pruebauno/models/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,12 +41,19 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1hknS3ZpPUYz90YGYOG603oGiAA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -84,12 +97,18 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600564186558">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="144" y="44" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600632883330">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1600564186558" />
+    <state x="144" y="44" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.819@0.23.1440.819" timestamp="1600632883330" />
+    <state x="473" y="241" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600631735321">
+      <screen x="0" y="23" width="1440" height="819" />
+    </state>
+    <state x="473" y="241" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.819@0.23.1440.819" timestamp="1600631735321" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1600564359934">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
