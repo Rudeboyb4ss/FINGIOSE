@@ -40,9 +40,5 @@ public class TurnoService {
         return currentTurno;
     }
 
-    @RequestMapping(value = "/calcularId", method = RequestMethod.GET)
-    public int calcularId() {
-        int nuevoId = this.turnoRepo.findAll().size() + 1;
-        return nuevoId;
-    }
+
 }

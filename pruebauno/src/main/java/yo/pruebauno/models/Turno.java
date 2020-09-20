@@ -1,5 +1,8 @@
 package yo.pruebauno.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("Turno")
 public class Turno {
     private int id;
     private int tiempoEspera; //tiempo en minutos

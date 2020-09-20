@@ -1,5 +1,8 @@
 package yo.pruebauno.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("receso")
 public class Receso {
     private String horaInicio;
     private String horaTermino;

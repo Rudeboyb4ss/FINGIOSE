@@ -1,9 +1,11 @@
 package yo.pruebauno.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 
-
+@Document("filavirtual")
 public class FilaVirtual {
     private Boolean estado;
     private String codigo;
@@ -13,6 +15,9 @@ public class FilaVirtual {
     private List<Receso> recesos;
     private int tiempoAtencion;  //cantidad de minutos
     private int turnoActual;
+
+    public FilaVirtual(){
+    }
 
     public Boolean getEstado() {
         return estado;
