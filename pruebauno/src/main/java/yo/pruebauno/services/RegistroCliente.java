@@ -26,7 +26,11 @@ public class RegistroCliente {
     public void agregarTurno(@RequestBody User usuario, FilaVirtual fila) {  //si no funciona agregar request
         int id = calcularId();
         int tiempoEspera = 1;
-        Turno turnoNuevo = new Turno(id, tiempoEspera, usuario);
+        //Turno turnoNuevo = new Turno(id, tiempoEspera, usuario);
+        Turno turnoNuevo = new Turno();
+        turnoNuevo.setTiempoEspera(1);
+        turnoNuevo.setCliente(usuario);
+        turnoNuevo.setId(id);
         fila.getClientesEspera().add(turnoNuevo);
         registroRepo.save(fila);
     }

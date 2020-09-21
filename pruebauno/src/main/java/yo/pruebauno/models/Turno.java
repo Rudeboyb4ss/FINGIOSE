@@ -8,11 +8,11 @@ public class Turno {
     private int tiempoEspera; //tiempo en minutos
     private User cliente; //Quizas cambiar despues por usuarioCliente
 
-    public Turno(int id, int tiempoEspera, User cliente) {
-        this.id = id;
-        this.tiempoEspera = tiempoEspera;
-        this.cliente = cliente;
-    }
+    //public Turno(int id, int tiempoEspera, User cliente) {
+    //    this.id = id;
+    //    this.tiempoEspera = tiempoEspera;
+    //    this.cliente = cliente;
+    //}
 
     public int getId() {
         return id;
