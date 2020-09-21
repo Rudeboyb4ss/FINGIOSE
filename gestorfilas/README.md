@@ -1,4 +1,4 @@
-# gestorfilas
+# app
 
 ## Project setup
 ```
