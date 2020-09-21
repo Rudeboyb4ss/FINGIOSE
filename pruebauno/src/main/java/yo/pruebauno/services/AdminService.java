@@ -3,7 +3,10 @@ package yo.pruebauno.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import yo.pruebauno.models.Admin;
+import yo.pruebauno.models.FilaVirtual;
+import yo.pruebauno.models.Receso;
 import yo.pruebauno.repositories.AdminRepo;
+import yo.pruebauno.repositories.FilaVirtualRepo;
 
 
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
 public class AdminService {
         @Autowired
         private AdminRepo adminRepo;
+        private FilaVirtualRepo filaRepo;
 
         @RequestMapping(value = "/getall", method = RequestMethod.GET)
         @ResponseBody
@@ -40,6 +44,19 @@ public class AdminService {
         Admin currentAdmin = adminRepo.findAdminByRut(admin.getRut());
         currentAdmin.setNombre(admin.getNombre());
         currentAdmin.setCorreo(admin.getCorreo());
+        adminRepo.save(currentAdmin);
+        return currentAdmin;
+    }
+
+    @RequestMapping(value = "/editfila", method = RequestMethod.POST)
+    public Admin editfila(@RequestBody Admin admin) {
+        Admin currentAdmin = adminRepo.findAdminByRut(admin.getRut());
+        FilaVirtual fila = currentAdmin.getFila();
+        fila.setEstado(admin.getFila().getEstado());
+        fila.setHorarioInicio(admin.getFila().getHorarioInicio());
+        fila.setHorarioTermino(admin.getFila().getHorarioTermino());
+        fila.setRecesos(admin.getFila().getRecesos());
+        currentAdmin.setFila(fila);
         adminRepo.save(currentAdmin);
         return currentAdmin;
     }

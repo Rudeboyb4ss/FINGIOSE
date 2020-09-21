@@ -16,15 +16,18 @@ public class RegistroCliente {
     private RegistroClienteRepo registroRepo;
     private TurnoRepo turnoRepo;
 
+
+    // Entrega el total de todos los turnos de todas las filas (está mal) --------*
     @RequestMapping(value = "/calcularId", method = RequestMethod.GET)
-    public int calcularId() {
-        int nuevoId = this.turnoRepo.findAll().size() + 1;
+    public int calcularId(FilaVirtual fila) {
+        int nuevoId = fila.getClientesEspera().size() + 1;
+        //int nuevoId = this.turnoRepo.findAll().size() + 1;
         return nuevoId;
     }
 
     @RequestMapping(value = "/asignarTurno", method = RequestMethod.POST)
     public void agregarTurno(@RequestBody User usuario, FilaVirtual fila) {  //si no funciona agregar request
-        int id = calcularId();
+        int id = calcularId(fila);
         int tiempoEspera = 1;
         //Turno turnoNuevo = new Turno(id, tiempoEspera, usuario);
         Turno turnoNuevo = new Turno();

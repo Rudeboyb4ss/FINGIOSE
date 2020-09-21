@@ -13,6 +13,7 @@ public class Admin{
     private String rut;
     private String telefono;
     private String direccion;
+    private FilaVirtual fila;
 
     public Admin() {
     }
@@ -74,6 +75,14 @@ public class Admin{
     public void setTelefono(String telefono) {
 
         this.telefono = telefono;
+    }
+
+    public FilaVirtual getFila() {
+        return fila;
+    }
+
+    public void setFila(FilaVirtual fila) {
+        this.fila = fila;
     }
 }
 
