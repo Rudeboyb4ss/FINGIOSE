@@ -18,6 +18,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+<<<<<<< Updated upstream
     path: '/iniciarfila',
     name: 'initfila',
     component: () => import(/* webpackChunkName: "about" */ '../views/initfila.vue')
@@ -31,6 +32,11 @@ const routes = [
     path: '/administrarFila',
     name: 'AdministrarFila',
     component: () => import(/* webpackChunkName: "about" */ '../views/administrarFila.vue')
+=======
+    path: '/confila',
+    name: 'configfila',
+    component: () => import(/* webpackChunkName: "about" */ '../views/confila.vue')
+>>>>>>> Stashed changes
   }
 ]
 
