@@ -5,12 +5,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("user")
 public class User {
 
-    @Id
-    public String id;
+    public String rut;
     public String nombre;
     public String correo;
-    public String rut;
-
 
 
     // Constructor
@@ -18,13 +15,6 @@ public class User {
     }
 
     // CRUD
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getRut() {
         return rut;

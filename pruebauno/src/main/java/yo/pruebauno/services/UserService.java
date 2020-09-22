@@ -19,7 +19,6 @@ public class UserService {
     @RequestMapping(value = "/getall", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getAll() {
-        System.out.println("Holaaaaa");
         return this.userRepo.findAll();
     }
 

@@ -21,6 +21,11 @@ const routes = [
     path: '/iniciarfila',
     name: 'initfila',
     component: () => import(/* webpackChunkName: "about" */ '../views/initfila.vue')
+  },
+  {
+    path: '/IngresoUsuario',
+    name: 'IngresoUsuario',
+    component: () => import(/* webpackChunkName: "about" */ '../views/IngresoUsuario.vue')
   }
 ]
 
