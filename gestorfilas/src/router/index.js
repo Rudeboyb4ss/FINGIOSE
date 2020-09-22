@@ -26,6 +26,11 @@ const routes = [
     path: '/IngresoUsuario',
     name: 'IngresoUsuario',
     component: () => import(/* webpackChunkName: "about" */ '../views/IngresoUsuario.vue')
+  },
+  {
+    path: '/administrarFila',
+    name: 'AdministrarFila',
+    component: () => import(/* webpackChunkName: "about" */ '../views/administrarFila.vue')
   }
 ]
 
