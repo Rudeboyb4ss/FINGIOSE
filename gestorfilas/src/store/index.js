@@ -20,6 +20,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+
       getFila(state)
       {
         axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
@@ -68,3 +69,4 @@ export default new Vuex.Store({
   modules: {
   },
 })
+
