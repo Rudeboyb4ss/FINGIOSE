@@ -24,7 +24,7 @@
         </v-btn>
         <div class="text-center pa-16">
           <v-btn class=" ma-2"
-          height="30">
+          height="30" to="/confila">
           Configurar fila
         </v-btn>
         </div>
