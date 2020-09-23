@@ -29,8 +29,9 @@ public class UserService {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void create(@RequestBody User user) {
+    public User create(@RequestBody User user) {
         userRepo.save(user);
+        return user;
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)

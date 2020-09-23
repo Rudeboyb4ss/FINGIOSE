@@ -2,11 +2,11 @@ package yo.pruebauno.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Turno")
+@Document("turno")
 public class Turno {
     private int id;
     private int tiempoEspera; //tiempo en minutos
-    private User cliente; //Quizas cambiar despues por usuarioCliente
+    private User cliente;
 
     //public Turno(int id, int tiempoEspera, User cliente) {
     //    this.id = id;

@@ -68,7 +68,6 @@ export default {
     rutErrors() {
       const errors = [];
       if (!this.$v.rut.$dirty) return errors;
-      //!this.$v.rut.maxLengthRut && errors.push('El rut no puede tener más de 10 caracteres.')
       !this.$v.rut.required && errors.push("Debe ingresar un rut.");
       const rutRegex = /^[0-9]+[-|‐]{1}[0-9kK]{1}$/;
       !rutRegex.test(this.rut) && errors.push("Debe ingresar un rut válido.");
@@ -83,7 +82,7 @@ export default {
         errors.push("Debe ingresar un correo electrónico.");
       return errors;
     },
-    ...mapState(['nuevo_user']),
+    ...mapState(['nuevo_user', 'codigoFila', 'user_fila']),
   },
 
   methods: {
@@ -96,16 +95,20 @@ export default {
       this.email = "";
       this.rut = "";
     },
-    ...mapMutations(['createUser']),
+    ...mapMutations(['createUser', 'agregarUsuarioFila']),
 
       create_user(){
           this.nuevo_user.nombre = this.name;
           this.nuevo_user.rut = this.rut;
           this.nuevo_user.correo = this.email;
+          this.user_fila.usuario = this.nuevo_user;
+          this.user_fila.codigoFila = this.codigoFila;
           this.$v.$touch()
-          console.log(this.nuevo_user);
+          //console.log(this.nuevo_user);
           this.createUser(this.nuevo_user)
-          
+          //console.log(this.nuevo_user);
+          //console.log(this.user_fila);
+          this.agregarUsuarioFila(this.user_fila)
       }
   },
 };
