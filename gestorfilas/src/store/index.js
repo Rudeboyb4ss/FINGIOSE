@@ -12,10 +12,10 @@ export default new Vuex.Store({
       rut: null,
       nombre: null,
       correo: null,
-    },
-    codigo:null
+    }
   },
   mutations: {
+
       getFila(state)
       {
         axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
@@ -25,29 +25,48 @@ export default new Vuex.Store({
           console.log(state.fila);
           axios.post("http://localhost:1818/filavirtual/editarestado", state.fila)
         })
-      }
-    },
-    createUser(state, nuevo_user){
-      try{
-        console.log(nuevo_user);
-        axios.post('http://localhost:1818/user/create/', nuevo_user)
-        .then(response =>{
-          console.log(response);
+      },
+
+      getTurnoActual(state)
+      {
+        axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
+          state.admin = result.data;
+          console.log(state.admin);
+          state.fila = state.admin.fila;
+          console.log(state.fila);
+        })
+      },
+
+      createUser(state, nuevo_user){
+        try{
+          console.log(nuevo_user);
+          axios.post('http://localhost:1818/user/create/', nuevo_user)
+          .then(response =>{
+            console.log(response);
+          }
+            )
+          .catch(function(error){
+            console.log(error);
+          });
+        } catch (err){
+          console.log("Hubo un problema al crear el usuario." + err)
         }
-          )
-        .catch(function(error){
-          console.log(error);
-        });
-      } catch (err){
-        console.log("Hubo un problema al crear el usuario." + err)
+      },
+
+      getFilaYPausar(state){
+          axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
+          state.admin = result.data;
+          console.log(state.admin);
+          state.fila = state.admin.fila;
+          console.log(state.fila);
+          axios.post("http://localhost:1818/filavirtual/pausarestado", state.fila)
+        })
       }
     },
 
-    validarCodigo(x){
-      console.log(x);
-    },
   actions: {
   },
   modules: {
   },
 })
+
