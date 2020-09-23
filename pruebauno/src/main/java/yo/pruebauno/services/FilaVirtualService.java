@@ -45,11 +45,12 @@ public class FilaVirtualService {
         filaRepo.save(currentFila);
         return currentFila;
     }
-
-    @RequestMapping(value = "/editarestado", method = RequestMethod.POST)
-    public FilaVirtual editarEstado(@RequestBody FilaVirtual fila) {
-        FilaVirtual currentFila = filaRepo.findFilaByCodigo(fila.getCodigo());
-        if(fila.getEstado() == true){
+    
+    @RequestMapping(value = "/editarestado/{codigo}", method = RequestMethod.PUT)
+    public FilaVirtual editarEstado2(@PathVariable String codigo) {
+        System.out.println("me quiero matar");
+        FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
+        if(currentFila.getEstado() == true){
             currentFila.setEstado(false);
         }
         else{

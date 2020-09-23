@@ -26,6 +26,7 @@
       <v-btn
         color="#00C2CB"
         class="mr-4 mt-10 white--text"
+        v-model="gummy"
       >
         Ingresar
       </v-btn>
@@ -34,3 +35,19 @@
   </v-layout>
 </v-container>
 </template>
+
+<script>
+  import {mapState, mapMutations} from 'vuex';
+  export default{
+    computed:{
+      ...mapState(['fila','admin'])
+    },
+    methods:{
+      ...mapMutations(['getFila','activarFila']),
+      
+      active(){
+        this.getFila();
+      }
+    }
+  }
+</script>

@@ -1,5 +1,6 @@
 package yo.pruebauno.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @Document("filavirtual")
 public class FilaVirtual {
     private Boolean estado;
+    @Id
     private String codigo;
     private List<Turno> clientesEspera; //numero de turno se saca del primer elemento de la lista
     private String horarioInicio;

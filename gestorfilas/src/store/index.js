@@ -12,7 +12,8 @@ export default new Vuex.Store({
       rut: null,
       nombre: null,
       correo: null,
-    }
+    },
+    codigo:null
   },
   mutations: {
       getFila(state)
@@ -40,6 +41,10 @@ export default new Vuex.Store({
       } catch (err){
         console.log("Hubo un problema al crear el usuario." + err)
       }
+    },
+
+    validarCodigo(x){
+      console.log(x);
     },
   actions: {
   },
