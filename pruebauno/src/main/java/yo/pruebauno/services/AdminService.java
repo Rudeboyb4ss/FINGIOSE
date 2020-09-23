@@ -9,6 +9,7 @@ import yo.pruebauno.repositories.AdminRepo;
 import yo.pruebauno.repositories.FilaVirtualRepo;
 
 
+
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
@@ -17,6 +18,7 @@ import java.util.List;
 public class AdminService {
         @Autowired
         private AdminRepo adminRepo;
+        @Autowired
         private FilaVirtualRepo filaRepo;
 
         @RequestMapping(value = "/getall", method = RequestMethod.GET)
@@ -34,8 +36,8 @@ public class AdminService {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody Admin admin) {
-
             adminRepo.save(admin);
+            filaRepo.save(admin.getFila());
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)

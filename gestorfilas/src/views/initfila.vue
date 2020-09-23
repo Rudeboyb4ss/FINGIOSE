@@ -20,6 +20,8 @@
             color="#00C2CB"
             block
             height="100"
+            @click.prevent="active"
+            to="/administrarFila"
           >Iniciar Fila
         </v-btn>
         <div class="text-center pa-16">
@@ -34,3 +36,19 @@
     </v-layout>
     </v-container>
   </template>
+
+<script>
+  import {mapState, mapMutations} from 'vuex';
+  export default{
+    computed:{
+      ...mapState(['fila','admin'])
+    },
+    methods:{
+      ...mapMutations(['getFila','activarFila']),
+      
+      active(){
+        this.getFila();
+      }
+    }
+  }
+</script>

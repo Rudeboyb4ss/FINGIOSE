@@ -46,6 +46,20 @@ public class FilaVirtualService {
         return currentFila;
     }
 
+    @RequestMapping(value = "/editarestado", method = RequestMethod.POST)
+    public FilaVirtual editarEstado(@RequestBody FilaVirtual fila) {
+        FilaVirtual currentFila = filaRepo.findFilaByCodigo(fila.getCodigo());
+        if(fila.getEstado() == true){
+            currentFila.setEstado(false);
+        }
+        else{
+            currentFila.setEstado(true);
+        }
+        filaRepo.save(currentFila);
+        return currentFila;
+    }
+
+
     @RequestMapping(value = "/agregarturno", method = RequestMethod.POST)
     public void agregarTurno(@RequestBody FilaVirtual fila, Turno turno) {  //si no funciona agregar request
         fila.getClientesEspera().add(turno);
