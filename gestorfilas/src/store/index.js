@@ -40,12 +40,9 @@ export default new Vuex.Store({
       } catch (err){
         console.log("Hubo un problema al crear el usuario." + err)
       }
-    }
-
-
-  },
+    },
   actions: {
   },
   modules: {
-  }
+  },
 })
