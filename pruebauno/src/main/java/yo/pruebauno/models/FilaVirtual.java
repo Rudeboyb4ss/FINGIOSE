@@ -8,6 +8,7 @@ import java.util.List;
 
 @Document("filavirtual")
 public class FilaVirtual {
+    private Boolean pausada;
     private Boolean estado;
     @Id
     private String codigo;
@@ -19,6 +20,14 @@ public class FilaVirtual {
     private int turnoActual;
 
     public FilaVirtual(){
+    }
+
+    public Boolean getPausada() {
+        return pausada;
+    }
+
+    public void setPausada(Boolean pausada) {
+        this.pausada = pausada;
     }
 
     public Boolean getEstado() {

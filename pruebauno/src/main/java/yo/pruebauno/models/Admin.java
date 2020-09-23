@@ -13,9 +13,17 @@ public class Admin{
     private String rut;
     private String telefono;
     private String direccion;
-    private FilaVirtual fila;
+    private String codigoFila;
 
     public Admin() {
+    }
+
+    public String getCodigoFila() {
+        return codigoFila;
+    }
+
+    public void setCodigoFila(String codigoFila) {
+        this.codigoFila = codigoFila;
     }
 
     public String getNombre() {
@@ -77,12 +85,5 @@ public class Admin{
         this.telefono = telefono;
     }
 
-    public FilaVirtual getFila() {
-        return fila;
-    }
-
-    public void setFila(FilaVirtual fila) {
-        this.fila = fila;
-    }
 }
 

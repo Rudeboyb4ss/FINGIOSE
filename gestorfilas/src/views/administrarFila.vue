@@ -58,6 +58,7 @@
 
     created: function()
     {
+      this.getFila();
       this.getTurnoActual();
     },
 

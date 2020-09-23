@@ -36,8 +36,14 @@ public class AdminService {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody Admin admin) {
+            FilaVirtual fila = new FilaVirtual();
+            fila.setEstado(false);
+            fila.setPausada(false);
+            filaRepo.save(fila);
+            String codigo = fila.getCodigo();
+            System.out.println(codigo);
+            admin.setCodigoFila(codigo);
             adminRepo.save(admin);
-            filaRepo.save(admin.getFila());
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -50,7 +56,7 @@ public class AdminService {
         return currentAdmin;
     }
 
-    @RequestMapping(value = "/editfila", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/editfila", method = RequestMethod.POST)
     public Admin editfila(@RequestBody Admin admin) {
         Admin currentAdmin = adminRepo.findAdminByRut(admin.getRut());
         FilaVirtual fila = currentAdmin.getFila();
@@ -61,5 +67,5 @@ public class AdminService {
         currentAdmin.setFila(fila);
         adminRepo.save(currentAdmin);
         return currentAdmin;
-    }
+    }*/
 }

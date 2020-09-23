@@ -6,8 +6,8 @@ Vue.use(Vuex,axios)
 
 export default new Vuex.Store({
   state: {
+    admin:{},
     fila:{},
-    admin:null,
     nuevo_user: {
       rut: null,
       nombre: null,
@@ -22,24 +22,23 @@ export default new Vuex.Store({
   },
   mutations: {
 
-      getFila(state)
+      getFila:function(state)
       {
-        axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
+        axios.get("http://localhost:1818/admin/getbyrut/6666666666666").then((result) => {
           state.admin = result.data;
-          console.log(state.admin);
-          state.fila = state.admin.fila;
-          console.log(state.fila);
-          axios.post("http://localhost:1818/filavirtual/editarestado", state.fila)
+          //console.log(state.admin);
+          this.codigoFila = state.admin.codigoFila;
+          //console.log(this.codigoFila);
+          axios.put("http://localhost:1818/filavirtual/editarestado/" + this.codigoFila)
         })
       },
 
       getTurnoActual(state)
       {
-        axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
-          state.admin = result.data;
-          console.log(state.admin);
-          state.fila = state.admin.fila;
-          console.log(state.fila);
+        //console.log(state.admin);
+        //console.log(state.admin.codigoFila);
+        axios.get("http://localhost:1818/filavirtual/getbycodigo/" + state.codigoFila).then((result) => {
+          state.fila = result.data;
         })
       },
 
@@ -65,7 +64,7 @@ export default new Vuex.Store({
           console.log(state.admin);
           state.fila = state.admin.fila;
           console.log(state.fila);
-          axios.post("http://localhost:1818/filavirtual/pausarestado", state.fila)
+          axios.post("http://localhost:1818/filavirtual/editarpausada", state.fila)
         })
       },
 

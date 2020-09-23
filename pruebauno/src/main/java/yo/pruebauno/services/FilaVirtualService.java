@@ -50,11 +50,29 @@ public class FilaVirtualService {
     public FilaVirtual editarEstado2(@PathVariable String codigo) {
         System.out.println("me quiero matar");
         FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
+        System.out.println("2");
         if(currentFila.getEstado() == true){
+            System.out.println("3");
             currentFila.setEstado(false);
         }
         else{
+            System.out.println("4");
             currentFila.setEstado(true);
+            currentFila.setPausada(false); //cambia el pausado a false-> si se inicia la fila ya no esta pausada
+        }
+        System.out.println("dsddsnj");
+        filaRepo.save(currentFila);
+        return currentFila;
+    }
+
+    @RequestMapping(value = "/editarpausada/{codigo}", method = RequestMethod.PUT)
+    public FilaVirtual editarPausada(@PathVariable String codigo) {
+        FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
+        if(currentFila.getPausada() == true){
+            currentFila.setPausada(false);
+        }
+        else{
+            currentFila.setPausada(true); //cambia el pausado a false-> si se inicia la fila ya no esta pausada
         }
         filaRepo.save(currentFila);
         return currentFila;
