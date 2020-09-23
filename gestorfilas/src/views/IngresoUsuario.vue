@@ -29,7 +29,7 @@
           @blur="$v.email.$touch()"
         ></v-text-field>
 
-        <v-btn class="mx-4 mb-4 white--text" color="#00C2CB" @click="submit">Unirse a la fila</v-btn>
+        <v-btn class="mx-4 mb-4 white--text" color="#00C2CB" @click="submit" v-on:click="create_user">Unirse a la fila</v-btn>
         <v-btn @click="clear" class="white--text mx-4 mb-4" color="#00C2CB">Limpiar campos</v-btn>
       </v-card>
     </v-layout>
@@ -39,7 +39,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
-import { mapState, mapMutation } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   mixins: [validationMixin],
@@ -54,11 +54,6 @@ export default {
     name: "",
     rut: "",
     email: "",
-    nuevo_user: {
-      rut: null,
-      nombre: null,
-      correo: null,
-    },
   }),
 
   computed: {
@@ -88,6 +83,7 @@ export default {
         errors.push("Debe ingresar un correo electrónico.");
       return errors;
     },
+    ...mapState(['nuevo_user']),
   },
 
   methods: {
@@ -100,12 +96,17 @@ export default {
       this.email = "";
       this.rut = "";
     },
-    /*...mapMutation(['createUser']),
+    ...mapMutations(['createUser']),
 
       create_user(){
+          this.nuevo_user.nombre = this.name;
+          this.nuevo_user.rut = this.rut;
+          this.nuevo_user.correo = this.email;
           this.$v.$touch()
+          console.log(this.nuevo_user);
           this.createUser(this.nuevo_user)
-      }*/
+          
+      }
   },
 };
 </script>

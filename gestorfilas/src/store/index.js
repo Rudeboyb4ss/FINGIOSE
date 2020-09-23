@@ -8,6 +8,11 @@ export default new Vuex.Store({
   state: {
     fila:{},
     admin:null,
+    nuevo_user: {
+      rut: null,
+      nombre: null,
+      correo: null,
+    }
   },
   mutations: {
       getFila(state)
@@ -21,6 +26,24 @@ export default new Vuex.Store({
         })
       }
     },
+    createUser(state, nuevo_user){
+      try{
+        console.log(nuevo_user);
+        axios.post('http://localhost:1818/user/create/', nuevo_user)
+        .then(response =>{
+          console.log(response);
+        }
+          )
+        .catch(function(error){
+          console.log(error);
+        });
+      } catch (err){
+        console.log("Hubo un problema al crear el usuario." + err)
+      }
+    }
+
+
+  },
   actions: {
   },
   modules: {
