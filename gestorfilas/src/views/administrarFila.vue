@@ -44,7 +44,7 @@
 
         <v-card-actions>
           <v-row justify="center">
-            <v-btn text small color="#00C2CB" to="/confila">Configurar fila</v-btn>
+            <v-btn text small color="#00C2CB">Configurar fila</v-btn>
           </v-row>
         </v-card-actions>
       </v-card>
