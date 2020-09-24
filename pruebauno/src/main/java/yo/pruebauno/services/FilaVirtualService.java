@@ -55,6 +55,7 @@ public class FilaVirtualService {
             System.out.println("3");
             currentFila.setEstado(false);
             currentFila.setPausada(true);
+            currentFila.setTurnoActual(1);
         }
         else{
             System.out.println("4");
