@@ -13,14 +13,18 @@ export default new Vuex.Store({
       nombre: null,
       correo: null,
     },
-    codigoFila:"5f67ea55f3fdcb0627e421de", //por mientras
+    codigoFila:"5f6bbf63d2c6822d31008c84", //por mientras
     user_fila:{
     user: null,
     codigo: null,
-  }
+  },
+  volver: 2,
+  filaconfig: null
+
 
   },
   mutations: {
+  
 
       getFila:function(state)
       {
@@ -84,6 +88,53 @@ export default new Vuex.Store({
         });
       } catch (err){
         console.log("Hubo un problema al agregar el usuario a la fila. " + err)
+      }
+    },
+
+    variableVolver(state, numero){
+      state.volver = numero;
+      console.log(state.volver);
+    },
+
+    guardarFila(state, fila_nueva){
+      state.filaconfig = fila_nueva;
+      
+
+    },
+
+    obtenerFila(state, admin){ //obbtener la fila como un objeto
+      try{
+        state.admin.codigofila = "5f6bbf63d2c6822d31008c84"; //para probar 
+        axios.get('http://localhost:1818/filavirtual/getbycodigo/5f6bbf63d2c6822d31008c84')// + state.admin.codigofila) //codigo fila es provisorio hasta saber como le van a póner al atributo codigo fila en admin
+        .then(result =>{
+          state.filaconfig = result.data;
+          console.log(this.state.filaconfig);
+          return result.data;
+        }
+          )
+        .catch(function(error){
+          console.log(error);
+        });
+      } catch (err){
+        console.log("Hubo un problema al obtenerFila " + err)
+      }
+    },
+
+    modificarhoraback(state, filaconfig){
+      state.filaconfig.horaInicio = this.filaconfig.horaInicio;
+      state.filaconfig.horaTermino = this.filaconfig.horaTermino;
+
+      try{
+        axios.post('http://localhost:1818/filavirtual/edit', this.filaconfig)
+        .then(response =>{
+          console.log(response);
+        }
+          )
+        .catch(function(error){
+          console.log(error);
+        });
+      } catch (err){
+        console.log("Hubo un problema al modificar hora " + err)
       }
     }
   },

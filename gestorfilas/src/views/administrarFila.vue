@@ -44,7 +44,7 @@
 
         <v-card-actions>
           <v-row justify="center">
-            <v-btn text small color="#00C2CB">Configurar fila</v-btn>
+            <v-btn to= "/confila" text small color="#00C2CB">Configurar fila</v-btn>
           </v-row>
         </v-card-actions>
       </v-card>
@@ -60,14 +60,16 @@
     {
       this.getFila();
       this.getTurnoActual();
+      this.variableVolver(1);
+
     },
 
     computed:{
-      ...mapState(['fila','admin'])
+      ...mapState(['fila','admin','volver'])
     },
 
     methods:{
-      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual']),
+      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual','variableVolver']),
       
       finalizarFila(){
         this.getFila();
@@ -80,6 +82,7 @@
       traerTurno(){
         this.getTurnoActual();
       }
+      
     }
   }
 </script>
