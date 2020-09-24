@@ -141,7 +141,7 @@ export default new Vuex.Store({
         axios.get('http://localhost:1818/filavirtual/getbycodigo/5f6bbf63d2c6822d31008c84')// + state.admin.codigofila) //codigo fila es provisorio hasta saber como le van a póner al atributo codigo fila en admin
         .then(result =>{
           state.filaconfig = result.data;
-          console.log(this.state.filaconfig);
+          //console.log(this.state.filaconfig);
           return result.data;
         }
           )

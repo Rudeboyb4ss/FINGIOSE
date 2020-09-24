@@ -4,7 +4,9 @@
       <v-card-title class="justify-center" style="font-size: 1.5em"
         >Configurar fila virtual</v-card-title
       >
-
+      <v-card-subtitle class="mt-n1 ml-3 pb-0" >
+         Ingrese horario de atención
+        </v-card-subtitle>
       <v-row class="ml-4">
         <v-col cols="11" sm="5">
           <v-dialog
@@ -76,7 +78,21 @@
           </v-dialog>
         </v-col>
       </v-row>
-
+      <v-text-field class="ml-7 mr-10"
+              label="Ingrese tiempo de atención por cliente"
+                placeholder="MM"
+            ></v-text-field>
+      <v-container class="px-6 small" fluid>
+      <v-switch
+      class="shrink"
+      color="#00C2CB" 
+      v-model="switch1"
+      :label="`Horario con receso`"
+    ></v-switch>
+      </v-container>
+      <v-card-subtitle class="mt-n1 ml-3 pb-0" >
+         Ingrese horario del receso
+        </v-card-subtitle>
       <v-row class="ml-4">
         <v-col cols="11" sm="5">
           <v-dialog
@@ -88,6 +104,7 @@
           >
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                class="mb-0"
                 v-model="time3"
                 label="Ingrese hora de inicio"
                 placeholder="HH:MM"
@@ -124,6 +141,7 @@
           >
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                class="mt-0"
                 v-model="time4"
                 label="Ingrese hora de termino"
                 placeholder="HH:MM"
@@ -145,14 +163,31 @@
                 >OK</v-btn
               >
             </v-time-picker>
+
           </v-dialog>
         </v-col>
-      </v-row>
+        <div>
+      <v-btn
+        small
+        color="#9D9D9D"
+        height="2em"
+        class="mx-4 mb-7 mt-0 white--text"
+        @click="submit"
+        >+ Agregar receso</v-btn
+      > </div>
 
+      
+
+
+      </v-row>
+      <v-card-actions class="justify-end">
+        <div>
       <v-btn
         v-if="volver == 1"
         color="#00C2CB"
-        class="mx-4 my-4 white--text"
+        height="3em"
+        align="center"
+        class="mx-8 my-4 white--text"
         @click="submit"
         v-on:click="modificarHora"
         >Aceptar</v-btn
@@ -160,11 +195,16 @@
       <v-btn
         v-if="volver == 2"
         color="#00C2CB"
-        class="mx-4 my-4 white--text"
+        height="3em"
+        align="center"
+        class="mx-8 my-4 white--text"
         v-on:click="modificarHora"
         @click="submit"
         >Aceptar</v-btn
-      >
+      ></div>
+      </v-card-actions>
+      
+      
     </v-card>
   </v-container>
 </template>
@@ -184,7 +224,9 @@ export default {
     modal2: false,
     modal3: false,
     modal4: false,
-    filaconfig2: null
+    checkbox: true,
+    radioGroup: 1,
+    switch1: true,
   }),
 
   created: function () {
@@ -204,14 +246,15 @@ export default {
     },
 
     modificarHora() {
-      //this.filaconfig2.horaInicio = this.time;
-      //this.filaconfig2.horaTermino = this.time1;
-      //this.modificarhoraback(this.filaconfig2);
+      //no se puede porque no se guarda la variable global filaconfig
+      //this.filaconfig.horaInicio = this.time;
+      //this.filaconfig.horaTermino = this.time1;
+      //this.modificarhoraback(this.filaconfig);
 
       if (this.volver == 1) {
-        this.$router.push("AdministrarFila");
+        this.$router.push('AdministrarFila');
       } else {
-        this.$router.push("iniciarfila");
+        this.$router.push('iniciarfila');
       }
     },
   },
