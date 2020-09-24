@@ -44,14 +44,18 @@ export default {
     {
       this.variableVolver(2);
     },
+    computed:{
+
+      ...mapState(["fila", "admin", "volver"])
+    },
+
     methods:{
-      ...mapMutations(['getFila','activarFila']),
+      ...mapMutations(['getFila','activarFila', 'variableVolver']),
       
       active(){
         this.getFila();
         this.$router.push('AdministrarFila')
       }
     }
-  },
-};
+  }
 </script>

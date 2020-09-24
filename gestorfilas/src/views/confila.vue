@@ -200,18 +200,18 @@ export default {
     ...mapMutations(["obtenerFila", "modificarhoraback"]),
 
     submit() {
-      this.$v.$touch();
+      //this.$v.$touch();
     },
 
     modificarHora() {
-      this.filaconfig2.horaInicio = this.time;
-      this.filaconfig2.horaTermino = this.time1;
-      this.modificarhoraback(this.filaconfig2);
+      //this.filaconfig2.horaInicio = this.time;
+      //this.filaconfig2.horaTermino = this.time1;
+      //this.modificarhoraback(this.filaconfig2);
 
-      if (volver == 1) {
+      if (this.volver == 1) {
         this.$router.push("AdministrarFila");
       } else {
-        this.$router.push("initfila");
+        this.$router.push("iniciarfila");
       }
     },
   },

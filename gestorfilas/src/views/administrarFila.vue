@@ -71,7 +71,7 @@
     },
 
     methods:{
-      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual', 'pasarTurnoActual']),
+      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual', 'pasarTurnoActual', 'variableVolver']),
       
       finalizarFila(){
         this.getFila();
