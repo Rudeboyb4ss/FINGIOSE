@@ -21,7 +21,6 @@
             block
             height="100"
             @click.prevent="active"
-            to="/administrarFila"
           >Iniciar Fila
         </v-btn>
         <div class="text-center pa-16">
@@ -48,6 +47,7 @@
       
       active(){
         this.getFila();
+        this.$router.push('AdministrarFila')
       }
     }
   }

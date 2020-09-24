@@ -4,15 +4,17 @@
       <v-card class="mx-auto my-12" max-width="374">
         <v-card-title class="justify-center" style="font-size:1.5em">Administrar Fila</v-card-title>
 
-        <v-card-title class="justify-center" style="font-size:3.5em">{{fila.turnoActual}}</v-card-title>
+        <v-card-title class="justify-center" style="font-size:1.5em" v-if="fila.turnoActual == 0">No existen personas en la fila</v-card-title>
+        <v-card-title class="justify-center" style="font-size:1.5em" v-if="fila.pausada == true">Fila Pausada</v-card-title>
+        <v-card-title class="justify-center" style="font-size:3.5em" v-else>{{fila.turnoActual}}</v-card-title>
 
-        <v-card-subtitle class="mt-n1" align="center">
+        <v-card-subtitle class="mt-n1" align="center" v-if="fila.turnoActual != 0 && fila.pausada!=true">
           <strong>Turno actual</strong>
         </v-card-subtitle>
 
         <v-card-actions>
           <v-row justify="center">
-            <v-btn class="white--text" large color="#00C2CB" height="6em">PASAR TURNO</v-btn>
+            <v-btn class="white--text" large color="#00C2CB" height="6em" @click.prevent="pasarTurno">PASAR TURNO</v-btn>
           </v-row>
         </v-card-actions>
 
@@ -25,7 +27,7 @@
               color="#E7AE57"
               height="3em"
               @click.prevent="pausarFila"
-              v-if="fila.pausada == false || fila.pausada==null">
+              v-if="fila.pausada == false">
                 PAUSAR FILA
             </v-btn>
 
@@ -44,7 +46,7 @@
 
         <v-card-actions>
           <v-row justify="center">
-            <v-btn text small color="#00C2CB">Configurar fila</v-btn>
+            <v-btn text small color="#00C2CB" to="/confila">Configurar fila</v-btn>
           </v-row>
         </v-card-actions>
       </v-card>
@@ -58,7 +60,7 @@
 
     created: function()
     {
-      this.getFila();
+      //this.getFila();
       this.getTurnoActual();
     },
 
@@ -67,10 +69,11 @@
     },
 
     methods:{
-      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual']),
+      ...mapMutations(['getFilaYPausar', 'getFila', 'getTurnoActual', 'pasarTurnoActual']),
       
       finalizarFila(){
         this.getFila();
+        this.$router.push('iniciarfila')
       },
 
       pausarFila(){
@@ -79,6 +82,10 @@
 
       traerTurno(){
         this.getTurnoActual();
+      },
+
+      pasarTurno(){
+        this.pasarTurnoActual();
       }
     }
   }

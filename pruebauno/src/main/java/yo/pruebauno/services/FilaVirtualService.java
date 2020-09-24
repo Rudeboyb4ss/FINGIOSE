@@ -54,13 +54,14 @@ public class FilaVirtualService {
         if(currentFila.getEstado() == true){
             System.out.println("3");
             currentFila.setEstado(false);
+            currentFila.setPausada(true);
         }
         else{
             System.out.println("4");
             currentFila.setEstado(true);
             currentFila.setPausada(false); //cambia el pausado a false-> si se inicia la fila ya no esta pausada
         }
-        System.out.println("dsddsnj");
+        System.out.println("2");
         filaRepo.save(currentFila);
         return currentFila;
     }
@@ -68,7 +69,7 @@ public class FilaVirtualService {
     @RequestMapping(value = "/editarpausada/{codigo}", method = RequestMethod.PUT)
     public FilaVirtual editarPausada(@PathVariable String codigo) {
         FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
-        if(currentFila.getPausada() == true){
+        if(currentFila.getPausada() == true || currentFila.getPausada() == null){
             currentFila.setPausada(false);
         }
         else{
@@ -85,10 +86,12 @@ public class FilaVirtualService {
         filaRepo.save(fila);
     }
 
-    @RequestMapping(value = "/pasarturno", method = RequestMethod.POST)
-    public void pasarTurno(@RequestBody FilaVirtual fila) {
-        fila.setTurnoActual(fila.getTurnoActual()+1);
-        filaRepo.save(fila);
+    @RequestMapping(value = "/pasarturno/{codigo}", method = RequestMethod.PUT)
+    public FilaVirtual pasarTurno(@PathVariable String codigo) {
+        FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
+        currentFila.setTurnoActual(currentFila.getTurnoActual()+1);
+        filaRepo.save(currentFila);
+        return currentFila;
     }
 
     @RequestMapping(value = "/agregarreceso", method = RequestMethod.POST)

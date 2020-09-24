@@ -13,7 +13,7 @@ export default new Vuex.Store({
       nombre: null,
       correo: null,
     },
-    codigoFila:"5f67ea55f3fdcb0627e421de", //por mientras
+    codigoFila: "5f6bca45977c940a559d413d", //por mientras
     user_fila:{
     user: null,
     codigo: null,
@@ -25,20 +25,24 @@ export default new Vuex.Store({
       getFila:function(state)
       {
         axios.get("http://localhost:1818/admin/getbyrut/6666666666666").then((result) => {
+          console.log(result.data);
           state.admin = result.data;
-          //console.log(state.admin);
-          this.codigoFila = state.admin.codigoFila;
-          //console.log(this.codigoFila);
-          axios.put("http://localhost:1818/filavirtual/editarestado/" + this.codigoFila)
+          state.codigoFila = result.data.codigoFila;
+          console.log(result.data.nombre);
+          console.log(state.codigoFila);
+          axios.put("http://localhost:1818/filavirtual/editarestado/" + result.data.codigoFila)
+          
         })
       },
 
-      getTurnoActual(state)
+      getTurnoActual:function(state)
       {
-        //console.log(state.admin);
+        console.log(state.codigoFila);
         //console.log(state.admin.codigoFila);
         axios.get("http://localhost:1818/filavirtual/getbycodigo/" + state.codigoFila).then((result) => {
           state.fila = result.data;
+          state.codigoFila = state.fila.codigo;
+          //console.log(state.fila);
         })
       },
 
@@ -58,13 +62,26 @@ export default new Vuex.Store({
         }
       },
 
-      getFilaYPausar(state){
-          axios.get("http://localhost:1818/admin/getbyrut/12555555").then((result) => {
+      getFilaYPausar:function(state)
+      {
+        axios.get("http://localhost:1818/admin/getbyrut/6666666666666").then((result) => {
+          console.log(result.data);
           state.admin = result.data;
-          console.log(state.admin);
-          state.fila = state.admin.fila;
-          console.log(state.fila);
-          axios.post("http://localhost:1818/filavirtual/editarpausada", state.fila)
+          state.codigoFila = result.data.codigoFila;
+          console.log(result.data.nombre);
+          console.log(state.codigoFila);
+          axios.put("http://localhost:1818/filavirtual/editarpausada/" + result.data.codigoFila).then((result) => {
+            state.fila = result.data;
+          })
+          
+          
+        })
+      },
+
+      pasarTurnoActual:function(state)
+      {
+        axios.put("http://localhost:1818/filavirtual/pasarturno/" + state.codigoFila).then((result) => {
+          state.fila = result.data;
         })
       },
 
