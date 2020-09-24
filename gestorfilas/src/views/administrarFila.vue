@@ -62,10 +62,12 @@
     {
       //this.getFila();
       this.getTurnoActual();
+      this.variableVolver(1);
+
     },
 
     computed:{
-      ...mapState(['fila','admin'])
+      ...mapState(['fila','admin','volver'])
     },
 
     methods:{
@@ -87,6 +89,7 @@
       pasarTurno(){
         this.pasarTurnoActual();
       }
+      
     }
   }
 </script>

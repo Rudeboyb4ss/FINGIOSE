@@ -28,7 +28,7 @@ public class FilaVirtualService {
     public FilaVirtual getByCodigo(@PathVariable(value = "codigo") String codigo) {
         return this.filaRepo.findFilaByCodigo(codigo);
     }
-
+    
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody FilaVirtual fila) {
         filaRepo.save(fila);
@@ -48,7 +48,7 @@ public class FilaVirtualService {
 
     @RequestMapping(value = "/editarestado/{codigo}", method = RequestMethod.PUT)
     public FilaVirtual editarEstado2(@PathVariable String codigo) {
-        System.out.println("me quiero matar");
+        //System.out.println("me quiero matar");
         FilaVirtual currentFila = filaRepo.findFilaByCodigo(codigo);
         System.out.println("2");
         if(currentFila.getEstado() == true){

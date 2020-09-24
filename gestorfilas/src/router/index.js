@@ -36,6 +36,11 @@ const routes = [
     path: '/confila',
     name: 'configfila',
     component: () => import(/* webpackChunkName: "about" */ '../views/confila.vue')
+  },
+  {
+    path: '/ingresado',
+    name: 'ingresado',
+    component: () => import(/* webpackChunkName: "about" */ '../views/UsuarioIngresado.vue')
   }
 ]
 

@@ -1,21 +1,21 @@
 <template>
-    <v-container fluid ma-0 pa-0 fill-height class="cyan lighten-5">
-      <v-layout row wrap align-center>
-    <v-card
-      class="mx-auto"
-      max-width="344"
-      elevation="12"
-      height="400"
-      align="center"
-      justify="center"
-    >
-      <v-card-text class=text-center>
-        <h1 class="display-1 text--primary font-weight-black" >
-          Administrar Fila
-        </h1>
-      </v-card-text>
-      <v-card-actions class="pa-16 flex-column justify-center " >
-        <v-btn
+  <v-container fluid ma-0 pa-0 fill-height class="cyan lighten-5">
+    <v-layout row wrap align-center>
+      <v-card
+        class="mx-auto"
+        max-width="344"
+        elevation="12"
+        height="400"
+        align="center"
+        justify="center"
+      >
+        <v-card-text class="text-center">
+          <h1 class="display-1 text--primary font-weight-black">
+            Administrar Fila
+          </h1>
+        </v-card-text>
+        <v-card-actions class="pa-16 flex-column justify-center">
+          <v-btn
             class="font-weight-medium white--text"
             color="#00C2CB"
             block
@@ -33,14 +33,16 @@
   
     </v-card>
     </v-layout>
-    </v-container>
-  </template>
+  </v-container>
+</template>
 
 <script>
-  import {mapState, mapMutations} from 'vuex';
-  export default{
-    computed:{
-      ...mapState(['fila','admin'])
+import { mapState, mapMutations } from "vuex";
+export default {
+
+  created: function()
+    {
+      this.variableVolver(2);
     },
     methods:{
       ...mapMutations(['getFila','activarFila']),
@@ -50,5 +52,6 @@
         this.$router.push('AdministrarFila')
       }
     }
-  }
+  },
+};
 </script>

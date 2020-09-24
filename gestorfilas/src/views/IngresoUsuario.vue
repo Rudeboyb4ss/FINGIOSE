@@ -109,6 +109,7 @@ export default {
           //console.log(this.nuevo_user);
           //console.log(this.user_fila);
           this.agregarUsuarioFila(this.user_fila)
+          this.$router.push('ingresado') 
       }
   },
 };
